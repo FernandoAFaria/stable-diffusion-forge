@@ -25,6 +25,9 @@ else
   cd /app/sd-webui
   git pull
 
+  # Ensure the script has execute permissions
+  chmod +x /app/sd-webui/webui.sh
+  
   # Start the application
   exec /app/sd-webui/webui.sh $ARGS
 fi
