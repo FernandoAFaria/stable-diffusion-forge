@@ -1,5 +1,7 @@
 #!/bin/bash
+
 echo "Starting Stable Diffusion WebUI"
+
 if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning..."
 
@@ -7,7 +9,7 @@ if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   chmod +x /app/sd-webui/webui.sh
   cd /app/sd-webui
 
-  #i don't really know if this is the best way to do this
+  # Set up virtual environment and install dependencies
   python3 -m venv venv
   source ./venv/bin/activate
   pip install insightface
@@ -19,4 +21,4 @@ else
   cd /app/sd-webui
   git pull
   exec /app/sd-webui/webui.sh $ARGS
-fi 
+fi
