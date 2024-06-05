@@ -1,22 +1,30 @@
 #!/bin/bash
+
 echo "Starting Stable Diffusion WebUI"
-if [ ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
+
+if [ ! -d "/app/sd-webui/modules" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning..."
 
-  # git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
-  chmod +x /app/sd-webui/webui.sh
+  # Clone the repository as the current user
+  git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
   cd /app/sd-webui
 
-  #i don't really know if this is the best way to do this
+  # Ensure the script has execute permissions
+  chmod +x /app/sd-webui/webui.sh
+
+  # Create virtual environment and install dependencies
   python3 -m venv venv
   source ./venv/bin/activate
   pip install insightface
   deactivate
 
+  # Start the application
   exec /app/sd-webui/webui.sh $ARGS
 else
   echo "Files found, starting..."
   cd /app/sd-webui
   git pull
+
+  # Start the application
   exec /app/sd-webui/webui.sh $ARGS
-fi 
+fi
