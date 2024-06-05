@@ -38,5 +38,6 @@ RUN git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /ap
     deactivate
 RUN pwd
 RUN ls -a
+EXPOSE 7860
 # Set the entrypoint
 ENTRYPOINT ["/app/run.sh"]
