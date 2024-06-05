@@ -27,5 +27,14 @@ USER webui
 # Create the sd-webui directory
 RUN mkdir /app/sd-webui
 
+# Clone the repository and perform subsequent actions
+RUN git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui && \
+    cd /app/sd-webui && \
+    chmod +x /app/sd-webui/webui.sh && \
+    python3 -m venv venv && \
+    source ./venv/bin/activate && \
+    pip install insightface && \
+    deactivate
+
 # Set the entrypoint
 ENTRYPOINT ["/app/run.sh"]
