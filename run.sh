@@ -2,15 +2,15 @@
 
 echo "Starting Stable Diffusion WebUI"
 
-if [false || ! -d "/sd-webui/" ] || [ ! "$(ls -A "/sd-webui")" ]; then
+if [false || ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning..."
 
   # Clone the repository
-  git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /sd-webui
-  cd /sd-webui
+  git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
+  cd /app/sd-webui
 
   # Ensure the script has execute permissions
-  chmod +x /sd-webui/webui.sh
+  chmod +x /app/sd-webui/webui.sh
 
   # Create virtual environment and install dependencies
   python3 -m venv venv
@@ -19,14 +19,14 @@ if [false || ! -d "/sd-webui/" ] || [ ! "$(ls -A "/sd-webui")" ]; then
   deactivate
 
   # Start the application
-  exec /sd-webui/webui.sh $ARGS
+  exec /app/sd-webui/webui.sh $ARGS
 else
   echo "Files found, starting..."
   pwd
   ls -la
-  cd /sd-webui
+  cd /app/sd-webui
   git pull
 
   # Start the application
-  exec /sd-webui/webui.sh $ARGS
+  exec /app/sd-webui/webui.sh $ARGS
 fi
