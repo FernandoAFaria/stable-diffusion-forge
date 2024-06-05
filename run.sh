@@ -2,7 +2,7 @@
 
 echo "Starting Stable Diffusion WebUI"
 
-if [ ! -d "/app/sd-webui/modules" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
+if [ ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning..."
 
   # Clone the repository as the current user
