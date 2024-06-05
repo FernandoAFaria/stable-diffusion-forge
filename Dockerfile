@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install dependencies as root
 RUN apt update && apt upgrade -y && \
-    apt install -y wget git python3 python3-venv libgl1 libglib2.0-0 apt-transport-https libgoogle-perftools-dev bc python3-pip git
+    apt install -y wget git python3 python3-venv libgl1 libglib2.0-0 apt-transport-https libgoogle-perftools-dev bc python3-pip
 
 # Create a non-root user
 RUN useradd -m webui
@@ -19,7 +19,8 @@ USER webui
 WORKDIR /app
 
 # Clone the repository and set up the environment as webui user
-RUN echo "Checking for /app/sd-webui directory" && \
+RUN git --version && echo "Git is installed" || (echo "Git is not installed" && exit 1) && \
+    echo "Checking for /app/sd-webui directory" && \
     if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A /app/sd-webui)" ]; then \
       echo "Files not found, cloning..."; \
       git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui && \
