@@ -10,21 +10,19 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y wget git python3 python3-venv libgl1 libglib2.0-0 apt-transport-https libgoogle-perftools-dev bc python3-pip && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir /app/sd-webui && \
+    chown -R webui:webui /app/sd-webui
 
 # Copy the run script and set permissions
 COPY run.sh /app/run.sh
 RUN chmod +x /app/run.sh
 
 # Create a non-root user
-RUN useradd -m webui && \
-    chown -R webui:webui /app
+RUN useradd -m webui
 
 # Switch to the non-root user
 USER webui
-
-# Create the sd-webui directory
-RUN mkdir /app/sd-webui
 
 # Set the entrypoint
 ENTRYPOINT ["/app/run.sh"]
