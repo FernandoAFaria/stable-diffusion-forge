@@ -1,13 +1,12 @@
 services:
   webui:
     image: "ghcr.io/yummiii/sd-webui-forge-docker:latest"
-    # build: .
     volumes:
       - "./data:/app/sd-webui"
     ports:
       - "7860:7860"
     environment:
-      - "ARGS=--listen --enable-insecure-extension-access"
+      - "ARGS=--listen --enable-insecure-extension-access" # Insecure extension access is required if you want to install extensions with the listen flag
     deploy:
       resources:
         reservations:
