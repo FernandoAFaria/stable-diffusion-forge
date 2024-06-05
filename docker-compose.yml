@@ -1,10 +1,10 @@
 services:
   webui:
-    build:
-      context: .
-      dockerfile: Dockerfile  # Specify the Dockerfile name if it's not named 'Dockerfile' or located in a different directory
+    #image: "ghcr.io/yummiii/sd-webui-forge-docker:latest"
+    build: .
+    user: root
     volumes:
-      - "./data:/app"
+      - "./data:/app/sd-webui"
     ports:
       - "7860:7860"
     environment:
