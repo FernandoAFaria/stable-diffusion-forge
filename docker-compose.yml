@@ -1,12 +1,14 @@
 services:
   webui:
-    image: "ghcr.io/yummiii/sd-webui-forge-docker:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile  # Specify the Dockerfile name if it's not named 'Dockerfile' or located in a different directory
     volumes:
       - "./data:/app/sd-webui"
     ports:
       - "7860:7860"
     environment:
-      - "ARGS=--listen --enable-insecure-extension-access" # Insecure extension access is required if you want to install extensions with the listen flag
+      - "ARGS=--listen --enable-insecure-extension-access"
     deploy:
       resources:
         reservations:
