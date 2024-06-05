@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install dependencies as root
 RUN apt update && apt upgrade -y && \
-    apt install -y wget git python3 python3-venv libgl1 libglib2.0-0 apt-transport-https libgoogle-perftools-dev bc python3-pip
+    apt install -y wget git python3 python3-venv libgl1 libglib2.0-0 apt-transport-https libgoogle-perftools-dev bc python3-pip git
 
 # Create a non-root user
 RUN useradd -m webui
