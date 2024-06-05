@@ -6,11 +6,11 @@ if [ ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning... WITH SUDO"
 
   # Clone the repository as the current user
-  sudo git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
+  git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
   cd /app/sd-webui
 
   # Ensure the script has execute permissions
-  sudo chmod +x /app/sd-webui/webui.sh
+  chmod +x /app/sd-webui/webui.sh
 
   # Create virtual environment and install dependencies
   python3 -m venv venv
