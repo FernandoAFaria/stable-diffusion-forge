@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Starting Stable Diffusion WebUI"
+sudo su
 
 if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning..."
