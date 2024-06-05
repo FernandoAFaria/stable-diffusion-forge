@@ -19,7 +19,8 @@ USER webui
 WORKDIR /app
 
 # Clone the repository and set up the environment as webui user
-RUN if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A /app/sd-webui)" ]; then \
+RUN echo "Checking for /app/sd-webui directory" && \
+    if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A /app/sd-webui)" ]; then \
       echo "Files not found, cloning..."; \
       git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui && \
       chmod +x /app/sd-webui/webui.sh && \
