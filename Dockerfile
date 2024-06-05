@@ -14,6 +14,7 @@ RUN chmod +x /app/run.sh
 # Create a non-privileged user
 RUN useradd -m webui
 
+COPY . .
 # Switch to non-privileged user
 USER webui
 
