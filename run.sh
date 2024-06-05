@@ -3,7 +3,7 @@
 echo "Starting Stable Diffusion WebUI"
 
 if [ ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
-  echo "Files not found, cloning..."
+  echo "Files not found, cloning... WITH SUDO"
 
   # Clone the repository as the current user
   sudo git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
