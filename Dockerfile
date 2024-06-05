@@ -40,5 +40,5 @@ RUN pwd
 RUN ls -a
 EXPOSE 7860
 # Set the entrypoint
-CMD ["exec", "/app/sd-webui/webui.sh $ARGS"]
+CMD ["/app/sd-webui/webui.sh $ARGS"]
 # ENTRYPOINT ["/app/run.sh"]
