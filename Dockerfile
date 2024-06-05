@@ -32,7 +32,7 @@ RUN git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /ap
     cd /app/sd-webui && \
     chmod +x /app/sd-webui/webui.sh && \
     python3 -m venv venv && \
-    source ./venv/bin/activate && \
+    . ./venv/bin/activate && \  
     pip install insightface && \
     deactivate
 
