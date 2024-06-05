@@ -29,7 +29,7 @@ RUN mkdir /app/sd-webui
 ENV PATH="/home/webui/.local/bin:${PATH}"
 
 # Clone the repository and perform subsequent actions
-RUN git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui && \
+RUN git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /sd-webui && \
     cd /app/sd-webui && \
     chmod +x /app/sd-webui/webui.sh && \
     python3 -m venv venv && \
