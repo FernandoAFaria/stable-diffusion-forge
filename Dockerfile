@@ -14,8 +14,8 @@ RUN chmod +x /app/run.sh
 # Create a non-privileged user
 RUN useradd -m webui
 
-# Create the sd-webui directory with proper permissions
-RUN mkdir /app/sd-webui && chown -R webui:webui /app
+# Create the sd-webui directory and set permissions
+RUN mkdir /app/sd-webui && chown -R webui:webui /app/sd-webui
 
 # Switch to non-privileged user
 USER webui
