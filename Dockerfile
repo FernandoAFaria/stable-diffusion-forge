@@ -16,7 +16,7 @@ RUN useradd -m webui
 
 # Create the sd-webui directory and set permissions
 RUN mkdir /app/sd-webui && chown -R webui:webui /app/sd-webui
-
+RUN git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git /app/sd-webui
 # Switch to non-privileged user
 USER webui
 
