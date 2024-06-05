@@ -2,7 +2,7 @@
 
 echo "Starting Stable Diffusion WebUI"
 
-if [ ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
+if [false || ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   echo "Files not found, cloning..."
 
   # Clone the repository
@@ -22,6 +22,8 @@ if [ ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
   exec /app/sd-webui/webui.sh $ARGS
 else
   echo "Files found, starting..."
+  pwd
+  ls -la
   cd /app/sd-webui
   git pull
 
