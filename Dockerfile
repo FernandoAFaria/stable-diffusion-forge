@@ -12,11 +12,11 @@ COPY run.sh /app/run.sh
 RUN chmod +x /app/run.sh
 
 # Create a non-privileged user
-RUN useradd -m webui
+# RUN useradd -m webui
 
 COPY . .
 # Switch to non-privileged user
-USER webui
+# USER webui
 
 # Set the entrypoint
 ENTRYPOINT ["/app/run.sh"]
