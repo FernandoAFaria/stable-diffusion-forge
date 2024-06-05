@@ -2,7 +2,7 @@
 
 echo "Starting Stable Diffusion WebUI"
 
-exec /app/sd-webui/webui.sh $ARGS
+exec /sd-webui/webui.sh $ARGS
 
 # if [false || ! -d "/app/sd-webui/" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
 #   echo "Files not found, cloning..."
