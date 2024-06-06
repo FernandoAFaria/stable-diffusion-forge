@@ -3,7 +3,7 @@ services:
     # image: "ghcr.io/yummiii/sd-webui-forge-docker:latest"
     build: .
     volumes:
-      - "./:/app"
+      - "./data:/app/sd-webui"
     ports:
       - "7860:7860"
     environment:
