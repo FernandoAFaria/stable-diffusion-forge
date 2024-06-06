@@ -15,7 +15,4 @@ RUN chmod +x /app/run.sh
 # Create the directory with correct permissions
 RUN mkdir -p /app/sd-webui && chown root:root /app/sd-webui
 
-# Copy the data directory from the build context to the image
-COPY data /app/sd-webui
-
 ENTRYPOINT ["/app/run.sh"]
