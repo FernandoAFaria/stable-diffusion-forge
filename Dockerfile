@@ -6,9 +6,7 @@ RUN apt install -y wget git python3 python3-venv libgl1 libglib2.0-0 apt-transpo
 COPY run.sh /app/run.sh
 RUN chmod +x /app/run.sh
 
-RUN useradd -m webui
-RUN chown -R webui:webui /app
-USER webui
+USER root
 RUN mkdir /app/sd-webui
 
 ENTRYPOINT ["/app/run.sh"]
